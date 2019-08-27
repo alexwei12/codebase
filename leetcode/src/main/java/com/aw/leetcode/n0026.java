@@ -1,6 +1,7 @@
 package com.aw.leetcode;
 
 /**
+ * 使用双指针，i快tail慢。 当i和i-1不同时，tail指针设为i的值
  * Created by 115477 on 2019/8/26.
  */
 public class n0026 {

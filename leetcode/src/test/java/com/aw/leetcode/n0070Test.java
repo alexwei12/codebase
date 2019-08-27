@@ -14,7 +14,7 @@ public class n0070Test {
     public void climbStairs() {
 
 
-        Assert.assertEquals(2, new n0070().climbStairs(2));
-        Assert.assertEquals(3, new n0070().climbStairs(3));
+        Assert.assertEquals(2, new n0070().climbStairs1(2));
+        Assert.assertEquals(3, new n0070().climbStairs1(3));
     }
 }

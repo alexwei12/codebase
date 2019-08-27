@@ -15,6 +15,6 @@ public class n0053Test {
 
         int[] nums = {-2,1,-3,4,-1,2,1,-5,4};
 
-        Assert.assertEquals(6, new n0053().maxSubArray(nums));
+        Assert.assertEquals(6, new n0053().maxSubArray1(nums));
     }
 }
