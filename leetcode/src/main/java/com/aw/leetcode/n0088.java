@@ -5,6 +5,7 @@ package com.aw.leetcode;
  * Created by alex on 2019/8/26.
  */
 public class n0088 {
+
     public void merge(int[] nums1, int m, int[] nums2, int n) {
 
         int ia = m-1;
