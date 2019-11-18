@@ -14,7 +14,7 @@ public class Count1 {
         int count = 0;
         while (in != 0) {
             count++;
-
+            // a___b
             in = in & (in - 1);
             System.out.println("step : " + in);
         }
@@ -25,8 +25,8 @@ public class Count1 {
         System.out.println(c(1));
         System.out.println(c(2));
         System.out.println(c(3));
-        System.out.println(c(15));
-        System.out.println(c(32));
+//        System.out.println(c(15));
+//        System.out.println(c(32));
         System.out.println(c(2345));
     }
 }
