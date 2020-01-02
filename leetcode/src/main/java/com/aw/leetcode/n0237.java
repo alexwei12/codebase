@@ -1,5 +1,7 @@
 package com.aw.leetcode;
 
+import com.aw.common.ListNode;
+
 /**
  * Created by 115477 on 2019/8/27.
  */
@@ -10,9 +12,4 @@ public class n0237 {
         node.next = node.next.next;
     }
 
-    class ListNode {
-      int val;
-      ListNode next;
-      ListNode(int x) { val = x; }
-  }
 }

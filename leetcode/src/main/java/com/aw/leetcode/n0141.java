@@ -1,5 +1,7 @@
 package com.aw.leetcode;
 
+import com.aw.common.ListNode;
+
 /**
  * 快慢指针，快的走两步，慢的走一步，如果有环一定会追上。
  *
@@ -31,14 +33,6 @@ public class n0141 {
 
         return fast == slow;
     }
-    
-    class ListNode {
-        int val;
-        ListNode next;
-        ListNode(int x) {
-            val = x;
-            next = null;
-        }
-    }
+
 
 }

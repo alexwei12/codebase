@@ -1,5 +1,7 @@
 package com.aw.leetcode;
 
+import com.aw.common.ListNode;
+
 /**
  * Created by 115477 on 2019/8/27.
  */
@@ -37,13 +39,5 @@ public class n0002 {
         return new ListNode(x);
     }
 
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        public ListNode(int x) {
-            val = x;
-        }
-    }
 
 }

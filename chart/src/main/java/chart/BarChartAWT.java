@@ -37,14 +37,29 @@ public class BarChartAWT extends ApplicationFrame {
         final HistogramDataset  dataset =
             new HistogramDataset( );
 
-        int count = 1 * 1 * 1000;
+        int count = 1 * 10 * 1000;
+        int total = 30 * 1000;
 //        double[] values = getRandomDoubles(count, 20, 500);
-//        double[] values = getGaussDoublesFixed(count, 100, 20, 500);
-        double[] values = getByProbability(count, new int[]{20, 150, 250, 350, 500},  new int[]{50, 30, 15, 5}, 20, 500);
-//        double[] values = getByProbability(count, new int[]{20, 150, 250, 350, 500},  new int[]{1, 98, 0, 1}, 20, 500);
+//        double[] values = getGaussDoublesFixed(count, 100, 10, 500);
+        double[] values = getByProbability(count, new int[]{10,15,15,200},  new int[]{98,0,2});
+//        double[] values = getByProbability(count, new int[]{20, 25, 25,  500},  new int[]{99, 0, 1});
 
         dataset.addSeries("Histogram",values, count);
+
+        System.out.println(average(values));
+
         return dataset;
+    }
+
+    public static double average(double table[]) {
+
+        double sum=0.0;
+
+        for (int i=0;i<table.length;i++) {
+            sum += table[i];
+        }
+        return sum / table.length;
+
     }
 
     private double[] getRandomDoubles(int count, int min, int max) {
@@ -83,7 +98,7 @@ public class BarChartAWT extends ApplicationFrame {
         return values;
     }
 
-    private double[] getByProbability(int count, int[] segments, int[] probabilities, int min, int max) {
+    private double[] getByProbability(int count, int[] segments, int[] probabilities) {
         assert (segments.length - 1 == probabilities.length);
         double[] values = new double[count];
 
@@ -99,8 +114,14 @@ public class BarChartAWT extends ApplicationFrame {
                 }
             }
 
-            int value = ThreadLocalRandom.current().nextInt(segments[segmentIndex], segments[segmentIndex + 1]);
-            values[i] = value;
+            //上下限相等的特殊情况
+            if (segments[segmentIndex] == (segments[segmentIndex + 1])) {
+                values[i] = segments[segmentIndex];
+            } else {
+                int value = ThreadLocalRandom.current()
+                    .nextInt(segments[segmentIndex], segments[segmentIndex + 1]);
+                values[i] = value;
+            }
         }
 
         return values;

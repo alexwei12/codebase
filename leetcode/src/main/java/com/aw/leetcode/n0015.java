@@ -1,5 +1,7 @@
 package com.aw.leetcode;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -25,7 +27,36 @@ public class n0015 {
      * @return
      */
     public List<List<Integer>> threeSum(int[] nums) {
-
-        return null;
+        List<List<Integer>> ans = new ArrayList();
+        if (nums.length < 3) {
+            return ans;
+        }
+        Arrays.sort(nums);
+        for (int i=0;i<nums.length-2;i++) {
+            if (i ==0 || nums[i] != nums[i-1]) {
+                int lo = i + 1;
+                int hi = nums.length -1;
+                int sum = 0 - nums[i];
+                while (lo < hi) {
+                    if (nums[lo] + nums[hi] == sum) {
+                        ans.add(Arrays.asList(nums[i], nums[lo], nums[hi]));
+                        //去掉重复的情况，多加一次
+                        while (lo < hi && nums[lo] == nums[lo + 1]) {
+                            lo++;
+                        }
+                        while (lo < hi && nums[hi] == nums[hi - 1]) {
+                            hi--;
+                        }
+                        lo++;
+                        hi--;
+                    } else if (nums[lo] + nums[hi] > sum) {
+                        hi--;
+                    } else {
+                        lo++;
+                    }
+                }
+            }
+        }
+        return ans;
     }
 }
