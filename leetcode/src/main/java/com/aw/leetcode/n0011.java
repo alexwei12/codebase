@@ -1,6 +1,7 @@
 package com.aw.leetcode;
 
 /**
+ * 双指针 分别指向头和尾，如果头比尾小，则头指针往中间移动一格，反之移动尾指针
  * @author weihongyi5
  */
 public class n0011 {
